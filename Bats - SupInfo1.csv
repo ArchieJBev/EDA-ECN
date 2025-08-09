@@ -1,0 +1,18 @@
+SITECODE,FIELDNAME,FROM_DATE,TO_DATE,DATETYPE,CONTINUING,DESCRIPTION
+T02,,01-Jan-07,31-Dec-07,R,N,Only two walks achieved due to weather conditions
+T04,,04-Sep-07,04-Sep-07,D,N,"Possibly soprano pipistrelle heard, recorded tracks available for checking"
+T04,,20-Aug-13,20-Aug-13,D,N,Not 100% sure
+T04,,29-Jul-14,29-Jul-14,D,N,"Unidentified record - very faint, not recorded.
+From start to the ruin detector not working, then working fine."
+T04,,29-Jul-15,29-Jul-15,D,N,"This was the only survey conducted this year, in period 3, the most productive period."
+T05,,06-Jul-04,05-Sep-04,R,N,On two of the 2004 bat walks an extra transect was walked to check the bat presence by the river.  This section was not thinned in 2003.  This extra section has been coded as 'T3'.  See maps for details of this extra transect.
+T05,,07-Jul-07,24-Aug-07,R,N,"First walk outside first time period specified in protocol, two walks carried out in third period"
+T05,,02-Aug-10,30-Aug-10,R,N,"2-Aug noted outside time period as per protocol, 9-Aug location 5 logged as either Nn or Es in the distance,  'much activity' noted and no accurate counts on 9-Aug between locations 21 to 23, 30-Aug at locations 5 and 9."
+T05,,22-Jul-11,22-Jul-11,D,N,House roost noted near point D end of walk
+T05,,29-Jun-14,19-Aug-14,R,N,"EM3+ bat detector also used, software Audacity and Batsound"
+T05,,11-Jul-15,11-Jul-15,D,N,Unknown entry - two bat species possibly a serotine (ES) and Daubenton (Md)
+T05,,02-Aug-15,02-Aug-15,D,N,Unknown entries - noted 'in wood'
+T08,BA_COUNT,01-Jan-10,31-Dec-99,D,Y,"Previously bats recorded when observer thought they were different individuals, not each bat call.  From 2010 recorded as previously but with the number of calls noted."
+T09,,28-Jul-08,28-Jul-08,D,N,Leisler identification confirmed by sending sonogram to BCT for second opinion.
+T09,,24-Jun-15,24-Jun-15,D,N,Area around B to A - heavy thin previous winter.  D - timber yard end now badly overgrown.
+T09,,06-Aug-15,06-Aug-15,D,N,"Problems with recorder, faulty cable"

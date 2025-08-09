@@ -1,0 +1,239 @@
+SITECODE,SDATE,BATDETECTORTYPE,KEPTPROTOCOLFREQUENCY,ADJUSTFREQUENCY,USEREFERENCECD,USESONOGRAMANALYSIS
+T04,20-Jun-05,Bat Box 3,Y,N,,
+T08,21-Jun-05,Batbox Duet,Y,Y,Y,Y
+T05,04-Jul-05,Bat Box 3,Y,Y,N,Y
+T08,11-Jul-05,Batbox Duet,Y,Y,Y,Y
+T04,12-Jul-05,Bat Box 3,Y,N,,
+T05,25-Jul-05,Bat Box 3,Y,Y,N,Y
+T08,09-Aug-05,Batbox Duet,Y,Y,Y,Y
+T05,09-Aug-05,Bat Box 3,Y,Y,N,Y
+T04,16-Aug-05,Bat Box 3,Y,N,,
+T05,28-Aug-05,Bat Box 3,Y,Y,N,Y
+T08,30-Aug-05,Batbox Duet,Y,N,Y,Y
+T04,06-Sep-05,Bat Box 3,Y,N,,
+T09,21-Jun-06,Batbox Duet,Y,Y,Y,N
+T07,22-Jun-06,Bat Box 3,Y,Y,N,N
+T04,27-Jun-06,Batbox Duet,Y,Y,,
+T08,29-Jun-06,Batbox Duet,Y,Y,N,Y
+T05,01-Jul-06,Bat Box 3/Duet,Y,Y,N,Y
+T11,03-Jul-06,Batbox Duet,Y,,Y,Y
+T02,05-Jul-06,Bat Box 3,Y,Y,N,N
+T08,13-Jul-06,Batbox Duet,Y,N,N,Y
+T09,13-Jul-06,Batbox Duet,Y,Y,Y,N
+T02,13-Jul-06,Bat Box 3,Y,Y,N,N
+T07,17-Jul-06,Bat Box 3,Y,Y,N,N
+T04,19-Jul-06,Batbox Duet,Y,N,N,
+T05,23-Jul-06,Bat Box 3/Duet,Y,Y,N,Y
+T11,25-Jul-06,Batbox Duet,Y,,Y,Y
+T08,08-Aug-06,Batbox Duet,Y,N,N,Y
+T07,09-Aug-06,Bat Box 3,Y,Y,N,N
+T09,10-Aug-06,Batbox Duet,Y,Y,Y,N
+T04,12-Aug-06,Batbox Duet,Y,Y,Y,Y
+T05,13-Aug-06,Bat Box 3/Duet,Y,Y,N,Y
+T02,16-Aug-06,Bat Box 3,Y,Y,N,N
+T07,22-Aug-06,Bat Box 3,Y,Y,N,N
+T08,22-Aug-06,Batbox Duet,Y,Y,N,Y
+T11,22-Aug-06,Batbox Duet,Y,,Y,Y
+T09,24-Aug-06,Batbox Duet,Y,Y,Y,N
+T05,30-Aug-06,Bat Box 3,Y,Y,N,N
+T02,06-Sep-06,Bat Box 3,Y,Y,N,N
+T04,10-Sep-06,Batbox Duet,Y,N,Y,Y
+T04,26-Jun-07,Batbox Duet,Y,N,N,N
+T08,26-Jun-07,Batbox Duet,Y,N,N,Y
+T09,04-Jul-07,Batbox Duet,Y,Y,Y,Y
+T07,04-Jul-07,Bat Box 3D,Y,Y,N,N
+T11,06-Jul-07,Batbox Duet,Y,Y,Y,Y
+T05,07-Jul-07,Bat Box 3 + Duet,Y,Y,N,Y
+T08,10-Jul-07,Batbox Duet,Y,Y,N,Y
+T11,16-Jul-07,Batbox Duet,Y,Y,Y,Y
+T09,16-Jul-07,Batbox Duet,Y,Y,Y,Y
+T04,17-Jul-07,Batbox Duet,Y,N,Y,Y
+T02,24-Jul-07,Bat Box 3,Y,Y,N,N
+T07,24-Jul-07,Bat Box 3D,Y,Y,N,N
+T11,30-Jul-07,Batbox Duet,Y,Y,Y,Y
+T05,30-Jul-07,Bat Box 3 + Duet,Y,Y,N,Y
+T08,07-Aug-07,Batbox Duet,Y,N,N,Y
+T07,09-Aug-07,Bat Box 3D,Y,Y,N,N
+T05,12-Aug-07,Bat Box 3 + Duet,Y,Y,N,Y
+T09,13-Aug-07,Batbox Duet,Y,Y,Y,Y
+T04,15-Aug-07,Batbox Duet,Y,N,Y,Y
+T02,16-Aug-07,Bat Box 3,Y,Y,N,N
+T08,23-Aug-07,Batbox Duet,Y,Y,N,Y
+T05,24-Aug-07,Bat Box 3 + Duet,Y,Y,N,Y
+T07,24-Aug-07,Bat Box 3D,Y,Y,N,N
+T11,26-Aug-07,Batbox Duet,Y,Y,Y,Y
+T09,28-Aug-07,Batbox Duet,Y,Y,Y,Y
+T04,04-Sep-07,Batbox Duet,Y,N,Y,Y
+T09,17-Jun-08,Batbox Duet,Y,Y,Y,Y
+T08,24-Jun-08,Batbox Duet,Y,N,N,Y
+T07,30-Jun-08,Bat Box 3 D,Y,Y,N,N
+T11,30-Jun-08,Batbox Duet,Y,Y,Y,Y
+T05,01-Jul-08,Batbox Duet,Y,Y,N,Y
+T04,01-Jul-08,Batbox Duet,Y,N,Y,Y
+T04,15-Jul-08,Batbox Duet,N,Y,Y,Y
+T08,15-Jul-08,Batbox Duet,Y,N,N,Y
+T09,15-Jul-08,Batbox Duet,Y,Y,Y,Y
+T07,16-Jul-08,Bat Box 3 D,Y,Y,N,N
+T02,17-Jul-08,Bat Box 3,Y,Y,N,N
+T11,26-Jul-08,Batbox Duet,Y,Y,Y,Y
+T05,27-Jul-08,Batbox Duet,Y,Y,N,Y
+T09,28-Jul-08,Batbox Duet,Y,Y,Y,Y
+T02,28-Jul-08,Bat Box 3,Y,Y,N,N
+T04,29-Jul-08,Batbox Duet,Y,N,,
+T08,04-Aug-08,Batbox Duet,Y,N,N,Y
+T07,08-Aug-08,Bat Box 3 D,Y,Y,N,N
+T11,14-Aug-08,Batbox Duet,Y,Y,Y,Y
+T05,15-Aug-08,Batbox Duet,Y,Y,N,Y
+T09,21-Aug-08,Batbox Duet,Y,Y,Y,Y
+T02,28-Aug-08,Bat Box 3,Y,Y,N,N
+T07,30-Aug-08,Bat Box 3 D,Y,Y,N,N
+T08,02-Sep-08,Batbox Duet,Y,N,N,Y
+T05,03-Sep-08,Batbox Duet,Y,Y,N,Y
+T11,04-Sep-08,Batbox Duet,Y,Y,Y,Y
+T04,16-Jun-09,Batbox Duet,Y,N,Y,Y
+T09,22-Jun-09,Batbox Duet,Y,Y,Y,Y
+T07,24-Jun-09,Bat Box 3 D,Y,Y,N,N
+T08,30-Jun-09,Batbox Duet,Y,N,Y,Y
+T02,02-Jul-09,Bat Box 3,Y,Y,N,N
+T05,02-Jul-09,Batbox Duet,Y,Y,N,Y
+T11,04-Jul-09,Batbox Duet,Y,Y,Y,Y
+T07,05-Jul-09,Bat Box 3 D,Y,Y,N,N
+T09,13-Jul-09,Batbox Duet,Y,Y,Y,Y
+T07,22-Jul-09,Bat Box 3 D,Y,Y,N,N
+T08,22-Jul-09,Batbox Duet,Y,N,N,Y
+T02,23-Jul-09,Bat Box 3,Y,Y,N,N
+T11,23-Jul-09,Batbox Duet,Y,Y,Y,Y
+T05,27-Jul-09,Batbox Duet,Y,Y,N,Y
+T02,30-Jul-09,Bat Box 3,Y,Y,N,N
+T09,03-Aug-09,Batbox Duet,Y,Y,Y,Y
+T11,05-Aug-09,Batbox Duet,Y,Y,Y,Y
+T04,05-Aug-09,Batbox Duet,Y,N,,
+T08,11-Aug-09,Batbox Duet,Y,N,Y,Y
+T08,17-Aug-09,Batbox Duet,Y,N,N,Y
+T05,17-Aug-09,Batbox Duet,Y,Y,N,Y
+T07,25-Aug-09,Bat Box 3 D,Y,Y,N,N
+T02,01-Sep-09,Bat Box 3,Y,Y,N,N
+T09,03-Sep-09,Batbox Duet,Y,Y,Y,Y
+T11,05-Sep-09,Batbox Duet,Y,Y,Y,Y
+T05,05-Sep-09,Batbox Duet,Y,Y,N,Y
+T07,16-Jun-10,Bat Box 3 D,Y,Y,N,N
+T11,20-Jun-10,Batbox Duet,Y,Y,Y,Y
+T02,22-Jun-10,Bat Box 3,Y,Y,N,N
+T08,22-Jun-10,Batbox Duet,Y,N,N,Y
+T09,22-Jun-10,Batbox Duet,Y,Y,Y,Y
+T04,29-Jun-10,Batbox Duet,N,N,Y,Y
+T05,06-Jul-10,Batbox Duet,Y,Y,Y,Y
+T08,08-Jul-10,Batbox Duet,Y,N,N,Y
+T09,19-Jul-10,Batbox Duet,Y,Y,Y,Y
+T07,21-Jul-10,Bat Box 3 D,Y,Y,N,N
+T11,23-Jul-10,Batbox Duet,Y,Y,Y,Y
+T02,26-Jul-10,Bat Box 3,Y,Y,N,N
+T04,27-Jul-10,Batbox Duet,Y,N,Y,Y
+T05,02-Aug-10,Batbox Duet,Y,Y,Y,Y
+T09,02-Aug-10,Batbox Duet,Y,Y,Y,Y
+T08,03-Aug-10,Batbox Duet,Y,N,N,Y
+T07,09-Aug-10,Bat Box 3 D,Y,Y,N,N
+T05,09-Aug-10,Batbox Duet,Y,Y,Y,Y
+T04,10-Aug-10,Batbox Duet,Y,N,Y,Y
+T02,16-Aug-10,Bat Box 3,Y,Y,N,N
+T08,18-Aug-10,Batbox Duet,Y,N,N,Y
+T07,25-Aug-10,Bat Box 3 D,Y,Y,N,N
+T05,30-Aug-10,Batbox Duet,Y,Y,Y,Y
+T09,31-Aug-10,Batbox Duet,Y,Y,Y,Y
+T04,01-Sep-10,Batbox Duet,Y,N,Y,Y
+T11,01-Sep-10,Batbox Duet,Y,Y,Y,Y
+T02,08-Sep-10,Bat Box 3,Y,Y,N,N
+T07,20-Jun-11,Bat Box 3,N,Y,N,N
+T05,22-Jun-11,Batbox Duet,Y,Y,N,Y
+T08,23-Jun-11,Batbox Duet,Y,Y,N,Y
+T04,28-Jun-11,Batbox Duet,Y,N,Y,Y
+T09,30-Jun-11,Batbox Duet,Y,N,Y,Y
+T02,04-Jul-11,Bat Box 3,N,Y,Y,N
+T11,06-Jul-11,Batbox Duet,Y,Y,Y,Y
+T07,11-Jul-11,Bat Box 3,N,Y,N,N
+T04,12-Jul-11,Batbox Duet,Y,N,Y,Y
+T08,12-Jul-11,Batbox Duet,Y,N,N,N
+T05,14-Jul-11,Bat Box 3,Y,Y,N,Y
+T02,20-Jul-11,Bat Box 3,Y,Y,Y,N
+T09,20-Jul-11,Batbox Duet,Y,N,Y,Y
+T11,22-Jul-11,Batbox Duet,Y,Y,Y,Y
+T09,01-Aug-11,Batbox Duet,Y,N,Y,Y
+T04,03-Aug-11,Batbox Duet,N,N,Y,Y
+T08,09-Aug-11,Batbox Duet,Y,N,N,
+T07,11-Aug-11,Bat Box 3,Y,Y,N,N
+T11,13-Aug-11,Batbox Duet,Y,Y,Y,Y
+T05,14-Aug-11,Batbox Duet,Y,Y,N,Y
+T04,23-Aug-11,Batbox Duet,Y,N,Y,Y
+T09,24-Aug-11,Batbox Duet,Y,N,Y,Y
+T08,24-Aug-11,Batbox Duet,Y,N,N,
+T05,29-Aug-11,Batbox Duet,Y,Y,N,Y
+T11,31-Aug-11,Batbox Duet,Y,Y,Y,Y
+T07,17-Jun-12,Bat Box 3,Y,Y,N,N
+T09,19-Jun-12,,,,,
+T08,19-Jun-12,Batbox Duet,Y,N,N,Y
+T02,27-Jun-12,Bat Box 3,Y,Y,Y,N
+T04,12-Jul-12,Batbox Duet,Y,N,Y,Y
+T05,20-Jul-12,Batbox Duet,Y,Y,N,Y
+T09,23-Jul-12,,,,,
+T08,24-Jul-12,Batbox Duet,Y,N,N,Y
+T02,25-Jul-12,Bat Box 3,Y,Y,Y,N
+T07,30-Jul-12,Bat Box 3,Y,Y,N,N
+T09,31-Jul-12,,,,,
+T08,07-Aug-12,Batbox Duet,Y,N,N,Y
+T02,08-Aug-12,Bat Box 3,Y,Y,Y,N
+T04,08-Aug-12,Batbox Duet,Y,,,
+T05,10-Aug-12,Batbox Duet,Y,Y,N,Y
+T07,14-Aug-12,Bat Box 3,Y,Y,N,N
+T08,21-Aug-12,Batbox Duet,Y,N,N,Y
+T04,28-Aug-12,Batbox Duet,Y,N,Y,Y
+T05,30-Aug-12,Batbox Duet,Y,Y,N,Y
+T02,30-Aug-12,Bat Box 3,Y,Y,Y,N
+T07,03-Sep-12,Bat Box 3,Y,Y,N,N
+T09,05-Sep-12,,,,,
+T02,24-Jun-13,Bat Box 3,Y,Y,Y,N
+T05,25-Jun-13,Batbox Duet,Y,Y,N,Y
+T09,01-Jul-13,,,,,
+T04,01-Jul-13,Batbox Duet,Y,N,Y,N
+T07,05-Jul-13,,,,,
+T04,09-Jul-13,Batbox Duet,Y,N,Y,N
+T09,15-Jul-13,,,,,
+T05,15-Jul-13,Batbox Duet,Y,Y,N,Y
+T04,30-Jul-13,Batbox Duet,Y,N,Y,N
+T02,30-Jul-13,Bat Box 3,Y,Y,Y,N
+T09,06-Aug-13,,,,,
+T07,08-Aug-13,,,,,
+T05,14-Aug-13,Batbox Duet,Y,Y,N,Y
+T02,14-Aug-13,Bat Box 3,Y,Y,Y,N
+T04,20-Aug-13,Batbox Duet,Y,N,Y,N
+T07,22-Aug-13,,,,,
+T09,28-Aug-13,,,,,
+T05,28-Aug-13,Batbox Duet,Y,Y,N,Y
+T02,29-Aug-13,Bat Box 3,Y,Y,Y,N
+T09,18-Jun-14,,,,,
+T02,24-Jun-14,Bat Box 3,Y,Y,N,N
+T04,24-Jun-14,Batbox Duet,Y,N,N,N
+T05,29-Jun-14,Batbox Duet,Y,Y,N,Y
+T07,30-Jun-14,,,,,
+T04,15-Jul-14,Batbox Duet,Y,N,N,N
+T09,21-Jul-14,,,,,
+T07,21-Jul-14,,,,,
+T02,23-Jul-14,Bat Box 3,Y,Y,N,N
+T05,23-Jul-14,Batbox Duet,Y,Y,N,N
+T04,29-Jul-14,Batbox Duet,Y,N,N,N
+T05,30-Jul-14,Batbox Duet,Y,Y,N,Y
+T09,31-Jul-14,,,,,
+T07,07-Aug-14,,,,,
+T02,13-Aug-14,Bat Box 3,Y,Y,N,N
+T05,19-Aug-14,Batbox Duet,Y,Y,N,Y
+T04,26-Aug-14,Anabat,Y,N,N,Y
+T02,27-Aug-14,Bat Box 3,Y,Y,N,N
+T09,02-Sep-14,,,,,
+T05,23-Jun-15,Batbox Duet,Y,Y,Y,Y
+T09,24-Jun-15,,,,,
+T05,11-Jul-15,Batbox Duet,Y,Y,Y,Y
+T09,13-Jul-15,,,,,
+T04,29-Jul-15,Anabat,N,N,N,N
+T05,02-Aug-15,Batbox Duet,Y,Y,Y,Y
+T09,06-Aug-15,,,,,
+T09,25-Aug-15,,,,,
+T05,01-Sep-15,Batbox Duet,Y,Y,Y,Y

@@ -1,0 +1,860 @@
+---
+title: "ST117 Final Written Report - Part EDA"
+author: "Report Pod 017"
+date: "Today's date in the format 2024-05-04" 
+output:
+  pdf_document: default
+  html_document: default
+---
+
+- Please read the document "WR Assessment, Style, and Submission Guidance".
+- Please also read the FAQs about the WR on Moodle.
+- Please adhere to the upper limits for pages, words, number of figures and tables.
+- We put together some generic examples of code chunks for initial steps and data visualisation (see in the bat section below). The references to online sources may be worth exploring further if you are looking for ideas about how to visually represent data.
+- Please remove the generic examples before you submit and replace them by your own work. Include your own work in other sections, too.
+- Please replace 099 and 1999-12-31 in the header by the appropriate numbers.
+- Please list below all members of the report pod who contributed to the work on this assignment (including the author of this Rmd file).
+- Please also list the specific species and locations assigned to your report pod to be used in some of the questions
+
+# This final Written Report submission is for Report Pod 099 with contributions from:
+1. Archie Bevan - 5531865 
+2. Nicolas Antoniou - 5538893
+3. Chenxi Zhang - 
+4. Jack Mahon - 
+5. Ewan Abbottspooner -
+
+# My Report Pod's species (FIELDNAME)
+
+Moths (302;180;382;648;313):
+
+Birds (MP;WR;S;C):
+
+Bats (Pp;M;P):
+
+# My Report Pod's locations (SITECODE)
+
+Locations (T01;T02;T03;T04):
+
+```{r setup, include=FALSE}
+#Code to setup packages should go here, for example:
+library(dplyr)
+library(tidyr)
+library(knitr)
+library(ggplot2)
+library(lubridate)
+
+```
+
+# Step 6: Summary of aspects of the datasets (bats, birds, moths, meteorological)
+
+## *Upper limit: 1 page of text (or about 1/4 page per dataset)*
+
+# Bats
+
+**Aim:** Track bat activity and population trends within ECN sites.
+
+**Method:** Use a tunable bat detector to record sightings and sounds along a pre-determined transect within a 1 km square of the ECN site.
+
+**Timing:** Conduct surveys four times a year during specific periods from June to September, walking the same transect in weather conditions suitable for bat activity.
+
+**Data Recording:** Employ a Batbox III detector set to 45 kHz, noting bat signals, species, and behavior on standardised mapping sheets with specified codes.
+
+**Data Specification:** Follow strict recording conventions, including site code, measurement code, and exact date/time for each sample.
+
+# Birds
+
+**Aim:** Monitor annual breeding bird population levels and distribution changes across a variety of UK habitats.
+
+**Method:** Birds are counted along two parallel transect lines within 1 km squares. Each 1 km transect is divided into ten 200 m sections, and habitats within 25 m of each side are recorded to correlate bird populations with habitat features.
+
+**Frequency and Timing:** Counts are conducted twice during the breeding season—early April to mid-May and mid-May to late June. Counting starts between 0600 and 0700 BST and is avoided during adverse weather conditions.
+
+**Data Recording:** All birds seen or heard are categorised by distance from the transect on standard BTO recording forms. Observers avoid recording the same bird twice and distinguish between adults and juveniles where possible.
+
+**Results Specification:** Key parameters such as Site Identification Code, Core Measurement Code, Location Code, and Sampling Date/Time are recorded for data integrity.
+
+# Moths
+
+**Aim:** To monitor changes in moth populations, thus providing pivotal data on environmental shifts and aiding biodiversity assessments within the UK.
+
+**Method:** Moths are captured utilising a standardised Rothamsted light trap, engineered to attract and ensnare moths nightly, facilitating subsequent daily assessments.
+
+**Frequency and Timing:** Optimal protocol would see moth traps cleared daily throughout the annum to amass comprehensive data. 
+
+**Data Recording:** Retrieved samples from the traps are dispatched to Rothamsted for species identification or are determined on-site should relevant expertise be on-hand. 
+
+**Results Specification:** The information collated encompasses species identification of moths, population counts, and precise sampling dates/times. 
+
+# Meteorology
+
+**Aim:** Keep track of weather at remote sites in the UK without having to visit too often.
+Method: Use automatic weather stations (AWS) that record a standard set of weather data regularly.
+
+**Maintenance:** Service the AWS once a year, check and calibrate the sensors, and download data to a computer every two weeks.
+
+**Location:** The weather stations are to be set up following the British Meteorological Office’s standards and not too far from manual weather instruments.
+
+**Results:** Data include wind speed and direction, temperatures, solar and net radiation, rainfall, soil temperature and moisture, and surface wetness. Data are logged hourly and include the Site Identification and Measurement Codes, location, and date/time of recording.
+
+# Step 7: Diagrams about data structure
+
+## *Upper limit: one diagram per dataset.*
+
+Your electronic image file can be drawn by any software package, on a tablet, or it can be a photograph of a pencil and paper drawing.
+
+In the R chunks below you need to include the names of your file and remove the hashtags to run.
+
+## Bats
+```{r Bat data diagram, out.width='80%'}
+#knitr::include_graphics("mydiagram_bats.png")
+```
+
+## Birds
+```{r Bird data diagram, out.width='80%'}
+#knitr::include_graphics("mydiagram_birds.png")
+```
+
+## Moths
+```{r Moth data diagram, out.width='80%'}
+#knitr::include_graphics("mydiagram_moths.png")
+```
+
+## Meteorological variables
+```{r Meteo data diagram, out.width='80%'}
+#knitr::include_graphics("mydiagram_meteo.png")
+```
+
+# Step 8: EDA for bats, birds, moths
+
+## *Upper limit: 21 pages including text, tables, figures (at most 15), and commented R code*
+
+*Note that the limit relates to bats, birds, and moths together. Alternatively you can think of this as 7 pages with at most 5 figures for each of these datasets, but the numbers can vary a bit as long as you adhere to the overall limit.*
+
+## Bats EDA
+
+Example code chunk showing some initial steps.
+
+```{r Data loading and preparation}
+setwd('/Users/ajbev/OneDrive/Desktop/ST117 Project/ST117 Project/00_raw_data/')
+
+ #Create dataframes from csvs
+
+ Bats= read.csv("Bat Raw Data.csv")
+ Birds= read.csv("Bird Raw Data.csv")
+ Meteorology=read.csv("ecn_ma_2003.csv")
+ Moths= read.csv("Moth Raw Data.csv")
+ 
+ #Change Sampling Date Column to a different format
+ 
+ Bats$SDATE<-as.Date(Bats$SDATE,format="%d-%b-%y")
+ Birds$SDATE<-as.Date(Birds$SDATE,format="%d-%b-%y")
+ Moths$SDATE<-as.Date(Moths$SDATE,format="%d-%b-%y")
+ Meteorology$SDATE<-as.Date(Meteorology$SDATE,format="%d-%b-%y")
+ 
+ #Create vectors for the corresponding years each data-set has data for
+ 
+ yearvector_BA=1993:2015
+ yearvector_BB=1995:2015
+ yearvector_IM=1992:2015
+ 
+ #Extract year from SDATE and sum VALUE for  eachyear using dplyr
+ 
+ sumvector_BA<-Bats %>%
+ mutate(year= year(SDATE)) %>%
+ group_by(year)%>%
+ summarize(total_value= sum(VALUE, na.rm=TRUE))%>%
+ pull(total_value)
+ 
+ sumvector_BB<-Birds%>%
+ mutate(year= year(SDATE)) %>%
+ group_by(year)%>%
+ summarize(total_value= sum(VALUE, na.rm=TRUE))%>%
+ pull(total_value)
+ 
+ sumvector_IM<-Moths%>%
+ mutate(year= year(SDATE)) %>%
+ group_by(year)%>%
+ summarize(total_value= sum(VALUE, na.rm=TRUE))%>%
+ pull(total_value)
+ 
+ #Create data frame consisting of years and sums of VALUE in each year
+ 
+ result_Bats<-data.frame(Year=yearvector_BA,Total_Value=sumvector_BA)
+ result_Birds<-data.frame(Year=yearvector_BB,Total_Value=sumvector_BB)
+ result_Moths <- data.frame(Year = yearvector_IM, Total_Value = sumvector_IM)
+ 
+ #Create Table from the dataframes
+ 
+ years_data = data.frame(Year = 1992:2015)
+ Table_Bats <- merge(years_data, result_Bats,by="Year",all.x=TRUE)
+ Table_Birds <- merge(Table_Bats,result_Birds,by="Year",all.x=TRUE)
+ 
+ MyTable <- merge(Table_Birds,result_Moths,by="Year",all.x=TRUE)
+ colnames(MyTable) <- c("Year", "Bats", "Birds", "Moths")
+ print(t(MyTable[c(1,2)]))
+```
+
+
+### Five Number Summary
+```{r, out.width='50%'}
+summary(result_Bats$Total_Value)
+```
+
+### Number of Bats Over Time
+```{r, out.width='50%'}
+# Create plots for the counts of each animal collected in each year
+ggplot(result_Bats, aes(x= Year, y = Total_Value)) +
+  geom_point() +  
+  geom_smooth(method = "lm", se = FALSE) + 
+  labs(x = "Year", y = "Number of Bats", title = "Bat Counts over the Years") +
+  theme_minimal() +
+  theme(plot.title = element_text(size = 10, hjust = 0.5))
+```
+The number of bats is shown to be trending down over time. 
+
+To investigate whether the least squares line is a good fit we are motivated to
+plot residuals.
+
+### Residuals Plot
+```{r, out.width='50%'}
+# Fit linear regression model
+lm_model1 <- lm(Total_Value ~ Year, data = result_Bats)
+
+residuals_Bats <- data.frame(Year = result_Bats$Year, Residuals = residuals(lm_model1))
+
+# Get residuals
+residuals_Bats <- data.frame(Year = result_Bats$Year, Residuals = residuals(lm_model1))
+
+# Plot residuals
+ggplot(residuals_Bats, aes(x = Year, y = Residuals)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +  # Add dashed line at y = 0
+  labs(x = "Year", y = "Residuals", title = "Bat Residuals") +
+  theme_minimal() +
+  theme(plot.title = element_text(size = 10, hjust = 0.5))
+```
+In the bat residuals, we note the
+outlier in year 1993 corresponding to extraordinarily low bat count.
+
+We try to fit polynomial model for the distribution of bats over time.
+
+### Polynomial Regression
+
+We choose polynomial degree 4.
+
+```{r, out.width='50%'}
+#We plot each animal using degree 4 polynomial
+
+ggplot(result_Bats, aes(x = Year, y = Total_Value)) +
+  geom_point() +  
+  geom_smooth(method = "lm", formula = y ~ poly(x, 4), se = FALSE) + 
+  labs(x = "Year", y = "Number of Bats", title = "Bat Counts over the Years") +
+  theme_minimal() +  
+  theme(plot.title = element_text(size = 10, hjust = 0.5))
+
+```
+In the plot for bats, 
+a polynomial of degree 4 captures the data well and even captures the outliers
+in years 1993 and 2015. This suggests that the polynomial regression may be
+over-fitting the data and a smaller degree of polynomial is needed. 
+
+### Box Plot of Distribution of Bats
+
+```{r, out.width='50%'}
+# Create Box Plot
+boxplot(result_Bats$Total_Value, main="Distribution of Bats",
+                       ylab="Count of Bats")
+```
+
+### Box plot of distribution of bats with sitecode
+```{r, out.width='50%'}
+# add year column to the bats and moths data and make a new data frame with the 
+# sum of bats per sitecode and year
+
+Bats$year <- year(Bats$SDATE)
+BatYear <- Bats%>%
+ group_by(year,SITECODE)%>%
+ summarise(total_bat_count=sum(VALUE))
+
+# plot boxplot
+
+ ggplot(data = BatYear ,aes(x=factor(year),y=total_bat_count)) +
+ geom_boxplot()+
+ geom_point(aes(colour=SITECODE))+
+ labs(title = "total bat count of each sitecode each year", x = "year", y = "Bat Count")
+
+```
+
+
+## Birds EDA
+
+### Table - Bird Counts over the Years
+
+```{r, out.width='50%'}
+print(t(MyTable[c(1,3)]))
+
+```
+
+### Five Number Summary
+
+```{r, out.width='50%'}
+summary(result_Birds$Total_Value)
+```
+
+### Number of Birds Over Time
+
+```{r, out.width='50%'}
+# Create plots for the counts of each animal collected in each year
+ggplot(result_Birds, aes(x= Year, y = Total_Value)) +
+  geom_point() +  
+  geom_smooth(method = "lm", se = FALSE) + 
+  labs(x = "Year", y = "Number of Birds", title = "Bird Counts over the Years") +
+  theme_minimal() +
+  theme(plot.title = element_text(size = 10, hjust = 0.5))
+```
+
+We note the large number of data points that are really far 
+apart the least squares line suggesting that the line is not a good fit for the
+data.
+
+Moreover, from the bird's graph we note that the last 4 years had especially low
+counts of birds which goes against the idea that bird population is rising over
+the years. This suggests that a simple linear regression line may be a poor fit
+for the distribution of bird counts over the years.
+
+### Residuals Plot
+
+```{r, out.width='50%'}
+# Fit linear regression model
+lm_model2 <- lm(Total_Value ~ Year, data = result_Birds)
+
+residuals_Birds <- data.frame(Year = result_Birds$Year, Residuals = residuals(lm_model2))
+
+# Get residuals
+residuals_Birds <- data.frame(Year = result_Birds$Year, Residuals = residuals(lm_model2))
+
+# Plot residuals
+ggplot(residuals_Birds, aes(x = Year, y = Residuals)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +  # Add dashed line at y = 0
+  labs(x = "Year", y = "Residuals", title = "Bird Residuals") +
+  theme_minimal() +
+  theme(plot.title = element_text(size = 10, hjust = 0.5))
+
+```
+
+We note that bird residual values seem to follow a parabola in the shape
+of $-x^2$ which may suggest we need to use polynomial regression to 
+plot the data.
+
+### Polynomial Regression
+
+We choose polynomial degree 4.
+
+```{r, out.width='50%'}
+#We plot each animal using degree 4 polynomial
+
+ggplot(result_Birds, aes(x = Year, y = Total_Value)) +
+  geom_point() +  
+  geom_smooth(method = "lm", formula = y ~ poly(x, 4), se = FALSE) + 
+  labs(x = "Year", y = "Number of Birds", title = "Bird Counts over the Years") +
+  theme_minimal() +  
+  theme(plot.title = element_text(size = 10, hjust = 0.5))
+
+```
+
+In the plot for birds, polynomial regression captures the trend well but cannot
+capture the spike the bird counts reached in years 2006-2009.
+
+### Box Plot of Distribution of Birds
+
+```{r echo=TRUE}
+
+# Create Box Plot
+boxplot(result_Birds$Total_Value, main="Distribution of Birds",
+                       ylab="Count of Birds")
+```
+
+## Moths EDA
+
+
+### Table - Moth Counts over the Years
+
+```{r, out.width='50%'}
+print(t(MyTable[c(1,4)]))
+```
+
+### Five Number Summary
+
+```{r, out.width='50%'}
+summary(result_Moths$Total_Value)
+```
+
+### Number of Moths Over Time
+
+```{r, out.width='50%'}
+# Create plots for the counts of each animal collected in each year
+ggplot(result_Moths, aes(x= Year, y = Total_Value)) +
+  geom_point() +  
+  geom_smooth(method = "lm", se = FALSE) + 
+  labs(x = "Year", y = "Number of Moths", title = "Moth Counts over the Years") +
+  theme_minimal() +
+  theme(plot.title = element_text(size = 10, hjust = 0.5))
+```
+
+We note the large number of data points that are really far 
+apart the least squares line suggesting that the line is not a good fit for the
+data.
+
+### Residuals Plot
+
+```{r, out.width='50%'}
+# Fit linear regression model
+lm_model3 <- lm(Total_Value ~ Year, data = result_Moths)
+
+residuals_Moths <- data.frame(Year = result_Moths$Year, Residuals = residuals(lm_model3))
+
+# Get residuals
+residuals_Moths <- data.frame(Year = result_Moths$Year, Residuals = residuals(lm_model3))
+
+# Plot residuals
+ggplot(residuals_Moths, aes(x = Year, y = Residuals)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +  # Add dashed line at y = 0
+  labs(x = "Year", y = "Residuals", title = "Moth Residuals") +
+  theme_minimal() +
+  theme(plot.title = element_text(size = 10, hjust = 0.5))
+```
+
+Moth residuals had an outlier in the year 2003 
+(found using Table 1). This big of an outlier suggests that polynomial 
+regression might be the wrong approach since it will not be able to capture the
+"spike" caused in that big of an outlier unless very high degrees of polynomial
+are used which may cause over-fitting.
+
+### Polynomial Regression
+
+We choose polynomial degree 4.
+
+```{r, out.width='50%'}
+#We plot each animal using degree 4 polynomial
+
+ggplot(result_Moths, aes(x = Year, y = Total_Value)) +
+  geom_point() +  
+  geom_smooth(method = "lm", formula = y ~ poly(x, 4), se = FALSE) + 
+  labs(x = "Year", y = "Number of Moths", title = "Moth Counts over the Years") +
+  theme_minimal() +  
+  theme(plot.title = element_text(size = 10, hjust = 0.5))
+```
+
+As predicted in the comments above, the spike in moth counts in year 2003
+was unable to be captured by the degree 4 polynomial.
+
+### Box Plot of Distribution of Moths
+
+```{r echo=TRUE}
+
+# Create Box Plot
+boxplot(result_Moths$Total_Value, main="Distribution of Moths",
+                       ylab="Count of Moths")
+```
+
+```{r echo=TRUE}
+
+# add year column to the bats and moths data and make a new data frame with the 
+# sum of bats per sitecode and year
+
+Moths$year <- year(Moths$SDATE)
+MothYear <- Moths%>%
+ group_by(year,SITECODE)%>%
+ summarise(total_moth_count=sum(VALUE))
+
+# plot boxplot
+
+ ggplot(data = MothYear ,aes(x=factor(year),y=total_moth_count)) +
+ geom_boxplot()+
+ geom_point(aes(colour=SITECODE))+
+ labs(title = "total moth count of each sitecode each year", x = "year", y = "Moth Count")
+```
+
+# Step 9: EDA for specific species of bats, birds, moths 
+
+## *Upper limit: 18 pages including text, tables, figures (at most 12), and commented R code*
+
+*Note that the limit relates to bats, birds, and moths together. Alternatively you can think of this as 6 pages with at most 4 figures for each of these datasets, but the numbers can vary a bit as long as you adhere to the overall limit.*
+
+My Report Pod's species are: 
+
+- Bats: *Pp;M;P*
+- Birds: *MP;WR;S;C*
+- Moths: *302;180;382;648;313*
+
+(Your Report Pod's species codes were communicated to you via email to your Warwick address around 26.3. with the subject "ST117 Data codes...".)
+
+## Bats EDA for specific species
+
+```{r echo=TRUE}
+#Create new data frames given species and locations
+ specific_Bats=Bats %>%
+ filter(FIELDNAME%in%c("Pp","M","P"))
+
+ specific_Birds=Birds %>%
+ filter(FIELDNAME%in%
+ c("MP","WR","S","C"))
+ 
+ specific_Moths=Moths %>%
+ filter(FIELDNAME%in%
+ c("302","180","382","648","313"))
+ 
+ # Change the format of the date column of each data frame
+ specific_Bats$SDATE<-as.Date(specific_Bats$SDATE,format="%d-%b-%y")
+ 
+ specific_Birds$SDATE<-as.Date(specific_Birds$SDATE,format="%d-%b-%y")
+ 
+ specific_Moths$SDATE<-as.Date(specific_Moths$SDATE,format="%d-%b-%y")
+ 
+ yearvector_BA=1993:2015
+ 
+ #Create three lists consisting of the number of each type of animal for each
+ # year we have data for
+ 
+ specific_Bats_sum<-specific_Bats %>%
+ mutate(year= year(SDATE)) %>%
+ group_by(year)%>%
+ summarize(total_value= sum(VALUE, na.rm=TRUE))%>%
+ pull(total_value)
+ 
+ specific_Birds_sum<-specific_Birds %>%
+ mutate(year= year(SDATE)) %>%
+ group_by(year)%>%
+ summarize(total_value= sum(VALUE, na.rm=TRUE))%>%
+ pull(total_value)
+ 
+ specific_Moths_sum<-specific_Moths %>%
+ mutate(year= year(SDATE)) %>%
+ group_by(year)%>%
+ summarize(total_value= sum(VALUE, na.rm=TRUE))%>%
+ pull(total_value)
+```
+
+### Table
+
+```{r echo=TRUE}
+#Create a data frame with year vector and sum vector
+ result_Bats_S<-data.frame(Year= yearvector_BA,Total_Value=specific_Bats_sum)
+ result_Birds_S<-data.frame(Year=yearvector_BB,Total_Value=specific_Birds_sum)
+ result_Moths_S<-data.frame(Year=yearvector_IM,Total_Value=specific_Moths_sum)
+ 
+ #Create the table consisting of the years,and counts for each type of
+ # animal
+ 
+ years_data= data.frame(Year=1992:2015)
+ 
+ Table_Bats_S<-merge(years_data,result_Bats_S,by="Year",all.x=TRUE)
+ Table_Birds_S<-merge(Table_Bats_S,result_Birds_S,by="Year",all.x=TRUE)
+ MyTable_S <-merge(Table_Birds_S,result_Moths_S,by="Year",all.x=TRUE)
+ 
+ colnames(MyTable_S)<-c("Year","Bats","Birds","Moths")
+ print(t(MyTable_S[c(1,2)]))
+```
+
+### Five-Number Summary
+
+```{r echo=TRUE}
+
+summary(result_Bats_S$Total_Value)
+
+```
+
+### Number of Bats over the Years using given species codes.
+
+```{r echo=TRUE}
+#Create 3 Plots with regression line
+
+ggplot(result_Bats_S, aes(x= Year, y = Total_Value)) +
+  geom_point() +  
+  geom_smooth(method = "lm", se = FALSE) + 
+  labs(x = "Year", y = "Number of Bats", title = "Bat Counts over the Years") +
+  theme_minimal() +
+  theme(plot.title = element_text(size = 10, hjust = 0.5))
+```
+
+We compare this plot to the plot of bats from all species.
+Bat counts in both figures seem to be agreeing, with bat counts shown 
+to be declining throughout the years.
+
+In the graph of all species, an extremely low bat count in year 1993 was seen. The same
+is seen in the plot with the species given to our report pod.
+
+### Polynomial Regression using given species codes.
+```{r, echo=TRUE}
+ggplot(result_Bats_S, aes(x = Year, y = Total_Value)) +
+  geom_point() +  
+  geom_smooth(method = "lm", formula = y ~ poly(x, 4), se = FALSE) + 
+  labs(x = "Year", y = "Number of Bats", title = "Bat Counts over the Years") +
+  theme_minimal() +  
+  theme(plot.title = element_text(size = 10, hjust = 0.5))
+```
+
+We compare the two polynomial regression graphs for bats, one with all species
+and the one above with just the bat species given to our report pod.
+
+In the plot of all species of bats, bat counts after the year 2006 are to seen to be 
+falling with time, however the plot above shows that after year 2006, 
+bat counts are increasing over the years. As a result, these graphs are in 
+disagreement.
+
+### Box Plot of Distribution of Bats
+
+```{r echo=TRUE}
+# Create Box Plot
+
+boxplot(result_Bats_S$Total_Value, main="Distribution of Bats",
+                       ylab="Count of Bats")
+```
+
+```{r}
+# from the data frames we make a new data frame summing the values per year for each species .
+
+batcode <- specific_Bats %>%
+  group_by(year, FIELDNAME) %>%
+  summarise(sum = sum(VALUE))
+
+specific_Birds$year <- year(specific_Birds$SDATE)
+birdcode <- specific_Birds %>%
+  group_by(year, FIELDNAME) %>%
+  summarise(sum = sum(VALUE))
+
+mothcode <- specific_Moths %>%
+  group_by(year, FIELDNAME) %>%
+  summarise(sum = sum(VALUE))
+
+# make parallel boxplots for each species
+
+ggplot(data = batcode,aes(x=factor(year),y=sum)) +
+ geom_boxplot()+
+ geom_point(aes(colour=FIELDNAME))+
+ labs(title = "total bat count of each species each year", x = "year", y = "Bat Count")
+```
+## Birds EDA for specific species
+
+### Table
+
+```{r,comment=NA}
+print(t(MyTable_S[c(1,3)]))
+```
+
+### Five-Number Summary
+
+```{r, echo=FALSE,comment=NA}
+
+summary(result_Birds_S$Total_Value)
+
+```
+
+### Number of Birds over the Years using given species codes.
+
+```{r,message=FALSE, echo=TRUE}
+#Create 3 Plots with regression line
+ggplot(result_Birds_S, aes(x= Year, y = Total_Value)) +
+  geom_point() +  
+  geom_smooth(method = "lm", se = FALSE) + 
+  labs(x = "Year", y = "Number of Birds", title = "Bird Counts over the Years") +
+  theme_minimal() +
+  theme(plot.title = element_text(size = 10, hjust = 0.5))
+
+```
+
+The plot above shows us that after Year 2001, bird
+counts were significantly higher which suggests that data for bird counts may 
+need to be transformed.
+
+The previous plot showing bird counts from all species showed an outlier for birds
+in 1995. This is also the case with the plot above, where bird counts for the year 1995 
+are seen to be almost 0.
+
+### Polynomial Regression using given species codes.
+```{r, echo=TRUE}
+ggplot(result_Birds_S, aes(x = Year, y = Total_Value)) +
+  geom_point() +  
+  geom_smooth(method = "lm", formula = y ~ poly(x, 4), se = FALSE) + 
+  labs(x = "Year", y = "Number of Birds", title = "Bird Counts over the Years") +
+  theme_minimal() +  
+  theme(plot.title = element_text(size = 10, hjust = 0.5))
+```
+
+In the case of birds, the two plots follow a
+similar shape, that being of a parabola such as $-x^4$
+
+Moreover, the peak of bird counts over the years is the same for both plots, being
+at around year 2006.
+
+### Box Plot 
+
+```{r echo=TRUE}
+
+# Create Box Plot
+boxplot(result_Birds_S$Total_Value, main="Distribution of Birds",
+                       ylab="Count of Birds")
+```
+
+```{r}
+# make parallel boxplots for each species
+
+ggplot(data = birdcode,aes(x=factor(year),y=sum)) +
+ geom_boxplot()+
+ geom_point(aes(colour=FIELDNAME))+
+ labs(title = "total bird count of each species each year", x = "year", y = "Bat Count")
+```
+
+
+## Moths EDA for specific species
+
+### Table
+
+```{r,comment=NA}
+print(t(MyTable_S[c(1,4)]))
+```
+
+### Five-Number Summary
+
+```{r, echo=FALSE,comment=NA}
+
+summary(result_Moths_S$Total_Value)
+
+```
+
+### Number of Moths over the Years using given species codes.
+
+```{r,message=FALSE, echo=TRUE}
+#Create 3 Plots with regression line
+ggplot(result_Moths_S, aes(x= Year, y = Total_Value)) +
+  geom_point() +  
+  geom_smooth(method = "lm", se = FALSE) + 
+  labs(x = "Year", y = "Number of Moths", title = "Moth Counts over the Years") +
+  theme_minimal() +
+  theme(plot.title = element_text(size = 10, hjust = 0.5))
+
+```
+
+We compare the simple linear regression plots for moth counts over the years 
+from all moth species and from the species given to our report pod.
+
+The plot using all moth species shows that moth counts are growing over the years.
+The same is shown on the plot above, moth counts are seen to be rising at the same
+rate.
+
+### Polynomial Regression using given species codes.
+```{r, echo=TRUE}
+ggplot(result_Moths_S, aes(x = Year, y = Total_Value)) +
+  geom_point() +  
+  geom_smooth(method = "lm", formula = y ~ poly(x, 4), se = FALSE) + 
+  labs(x = "Year", y = "Number of Moths", title = "Moth Counts over the Years") +
+  theme_minimal() +  
+  theme(plot.title = element_text(size = 10, hjust = 0.5))
+
+```
+
+
+Polynomial regression for moths in both plots is a bad fit 
+since it is unable to capture spikes in moth counts over the years and as a result
+stays relatively flat in both figures. This could have been mitigated if we had 
+used a higher degree polynomial but that may have resulted in over-fitting.
+
+### Box Plot of Distribution of Moths
+
+```{r echo=TRUE}
+
+# Create Box Plot
+boxplot(result_Moths_S$Total_Value, main="Distribution of Moths",
+                       ylab="Count of Moths")
+```
+
+```{r}
+# make parallel boxplots for each species
+
+ggplot(data = mothcode,aes(x=factor(year),y=sum)) +
+ geom_boxplot()+
+ geom_point(aes(colour=FIELDNAME))+
+ labs(title = "total moth count of each species each year", x = "year", y = "Bat Count")
+```
+
+# Step 10: EDA meteorological variables
+
+## *Upper limit: 6 pages including text, tables, figures (at most 4), and commented R code*
+
+I am born in the year *2003* and I conduct the analysis for that year.
+
+We conduct analysis stratified by sitecode.
+We will consider the following variables:
+
+- Windspeed
+- Dry Bulb Temperature
+- Rainfall
+- Relative Humidity
+
+### Windspeed
+
+```{r}
+
+sitelist = c("T01","T02","T03","T04","T05","T06","T07","T08","T09","T10","T11","T12")
+
+sumvector_Windspeed <- Meteorology %>%
+  filter(FIELDNAME == "WSPEED",SITECODE %in% sitelist)
+
+ggplot(sumvector_Windspeed, aes(x = SITECODE, y = VALUE, fill = SITECODE)) +
+  geom_boxplot() +
+  labs(x = "Site Code", y = "Wind Speed (m/s)", title = "Parallel Boxplot of Wind Speed by Site Code") +
+  theme_minimal()
+
+```
+From the plot above we can see which ECN terrestrial sites were the ones with the 
+greatest windspeed. In particular, we see that site T07 had the highest median
+windspeed while site T12 had the greatest recorded windspeed.
+
+### Dry Bulb Temperature
+
+```{r}
+sumvector_drytemp <- Meteorology %>%
+  filter(FIELDNAME == "DRYTMP",SITECODE %in% sitelist)
+ggplot(sumvector_drytemp, aes(x = SITECODE, y = VALUE, fill = SITECODE)) +
+  geom_boxplot() +
+  labs(x = "Site Code", y = "Dry bulb temperature (average) °C", title = "Parallel Boxplot of Dry bulb temperature by Site Code") +
+  theme_minimal()
+```
+
+From the plot above we can see which site had the highest and lowest dry bulb temperature.
+We find that site T04 had the lowest recorded temperature, below -10 degrees celcius.
+Moreover site T04 had the lowest median dry bulb temperature. On the other hand,
+site T06 had greatest recorded dry bulb temperature at over 35 degrees.
+
+### Rainfall
+
+```{r}
+sumvector_rainfall <- Meteorology %>%
+  filter(FIELDNAME == "RAIN",SITECODE %in% sitelist) %>%
+  group_by(SITECODE) %>%
+  summarise(total_value = sum(VALUE))
+ggplot(sumvector_rainfall, aes(x = SITECODE, y = total_value)) +
+  geom_point() +
+  labs(x = "Site Code", y = "Rainfall (mm)", title = "Rainfall vs SITECODE") +
+  theme_minimal()
+```
+
+We are able to see which sites had the most rainfall over the years. 
+We find that site T11 had the most rainfall aggregated over all the years.
+Converseley, site T12 had the least rainfall.
+
+```{r}
+ filtered_Meteorology <- filter(Meteorology, FIELDNAME == "SOLAR")
+ #filter down data to sitecode T01 and sampling hour 7 and 19
+ T01mtgy_data7 <- filter(filtered_Meteorology,SITECODE == "T01", SHOUR == 7)
+ 
+ # plot line graph for this data
+ ggplot(T01mtgy_data7, aes(x = SDATE, y = VALUE, colour = FIELDNAME)) +
+ geom_line() +
+ labs(title = " solar value at T01 with SHOUR = 7", x = "year", y = "value (measurements determimned)") 
+
+```
+
+We can see that in T01 the "SOLAR" variable peaks in the summer and is symmetric through July. This shows us the peak "SOLAR" on one day at 7am is around 325 in june. 

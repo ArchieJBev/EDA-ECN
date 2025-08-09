@@ -1,0 +1,11 @@
+SITECODE,LCODE,FIELDNAME,FROM_DATE,TO_DATE,DATETYPE,CONTINUING,DESCRIPTION
+T01,01,,03-Jan-06,03-Jan-06,D,N,Rothamsted records may show catch on 30 Dec 2005 as they finalise numbers within the same year as trapping started.  Logged here on sampling date.
+T04,01,,01-Jan-93,31-Dec-93,R,N,"1993 data: - Only positive moth catches recorded. Trap operated intermittently, and no dates recorded"
+T04,01,,01-Jan-94,08-May-94,R,N,No sample/reading taken - equipment out of action / unable to visit equipment
+T04,01,,16-Jul-94,09-Aug-94,R,N,No sample/reading taken - equipment out of action / unable to visit equipment
+T04,01,,01-Oct-94,31-Dec-94,R,N,No sample/reading taken - equipment out of action / unable to visit equipment
+T05,01,,03-Sep-98,31-Dec-99,R,Y,Stopped using tetrachloroethane as killing fluid in the moth trap on 3/9/98. Now using ethyl acetate.
+T06,01,,05-Jul-06,05-Jul-06,D,N,Bulb blew some time overnight.
+T06,01,,21-Sep-06,21-Sep-06,D,N,Bulb blew some time overnight.
+T10,01,,07-Oct-95,01-Jan-96,R,N,No sample/reading taken - equipment out of action / unable to visit equipment
+T10,01,,06-Oct-95,31-Dec-96,R,N,No moth trap running during this period

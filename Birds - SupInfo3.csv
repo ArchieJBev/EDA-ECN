@@ -1,0 +1,5 @@
+SITECODE,LCODE,FIELDNAME,FROM_DATE,TO_DATE,DATETYPE,CONTINUING,DESCRIPTION
+T01,01,,01-Jan-03,31-Dec-03,R,N,Only the late visit was done in 2003
+T04,01,,11-Jun-08,11-Jun-08,D,N,"Codes for weather conditions missing, noted 'drizzle towards the end'."
+T04,01,,24-May-11,24-May-11,D,N,Both transects walked simultaneously.
+T10,01,,01-Jan-10,31-Dec-10,R,N,Only early walk possible on each transect.
